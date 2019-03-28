@@ -376,6 +376,9 @@
 	************************************/
 
 	function normalizeName (name) {
+		if (typeof name !== 'string') {
+			name = 'Etc/GMT+8';
+		}
 		return (name || '').toLowerCase().replace(/\//g, '_');
 	}
 
@@ -397,7 +400,7 @@
 	}
 
 	function getZone (name, caller) {
-		
+
 		name = normalizeName(name);
 
 		var zone = zones[name];
